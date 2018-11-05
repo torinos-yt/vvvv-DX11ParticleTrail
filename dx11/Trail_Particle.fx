@@ -1,3 +1,12 @@
+struct Particle {
+	#if defined(COMPOSITESTRUCT)
+  		COMPOSITESTRUCT
+ 	#else
+		float3 position;
+	#endif
+};
+
+
 struct Trail{
 	int currentNodeIdx;
 };
@@ -7,16 +16,9 @@ struct Node{
 	float3 pos;
 };
 
-struct OutBuf{
-	Trail trail;
-	Node node;
-};
-
-
 Texture2D texture2d <string uiname="Texture";>;
 StructuredBuffer<Trail> TrailBuffer;
 StructuredBuffer<Node> NodeBuffer;
-StructuredBuffer<OutBuf> OutBuffer;
 
 StructuredBuffer<Particle> ParticleBuffer;
 StructuredBuffer<uint> AlivePointerBuffer;
@@ -48,7 +50,7 @@ int ToNodeBufIdx(int trailIdx, int nodeIdx){
 }
 
 Node GetNode(int trailIdx, int nodeIdx){
-	return OutBuffer[ToNodeBufIdx(trailIdx, nodeIdx)].node;
+	return NodeBuffer[ToNodeBufIdx(trailIdx, nodeIdx)];
 }
 
 bool IsValid(Node node){
@@ -89,15 +91,14 @@ struct vsout {
 	float ageRateNext : TEXCOORD1;
 };
 
-struct gsout {
+struct gsout{
 	float4 pos : SV_POSITION;
 	float4 col : COLOR;
 };
 
-
-vsout VS(VS_IN input){
+vsout VS_particle(VS_IN input){
 	vsout output;
-	Trail trail = OutBuffer[input.iid].trail;
+	Trail trail = TrailBuffer[input.iid];
 	int currentNodeIdx = trail.currentNodeIdx;
 	
 	Node node0 = GetNode(input.iid, input.id - 1);
@@ -115,6 +116,17 @@ vsout VS(VS_IN input){
 	float3 pos0 = IsValid(node0) ? node0.pos : pos1;
 	float3 pos2 = IsValid(node2) ? node2.pos : pos1;
 	float3 pos3 = IsValid(node3) ? node3.pos : pos2;
+	
+	uint particleIndex = AlivePointerBuffer[input.iid];
+	float width = 1;
+	float4 col = float4(1,1,1,1);
+	
+	#if defined(KNOW_SCALE)
+       width = ParticleBuffer[input.iid].scale;
+    #endif
+	#if defined(KNOW_COLOR)
+       col = ParticleBuffer[input.iid].color;
+    #endif
 
 	
 	output.pos = float4(pos1, 1);
@@ -128,10 +140,10 @@ vsout VS(VS_IN input){
 	output.ageRate = ageRate;
 	output.ageRateNext = ageRateNext;
 	
-	output.col = lerp(scol, ecol, ageRate);
-	output.colNext = lerp(scol, ecol, ageRateNext);
+	output.col = lerp(scol * col, ecol, ageRate);
+	output.colNext = lerp(scol * col, ecol, ageRateNext);
 	
-	output.width = 1;
+	output.width = width;
 	
 	return output;
 }
@@ -178,18 +190,17 @@ void geom (point vsout input[1], inout TriangleStream<gsout> outStream){
 	outStream.RestartStrip();
 }
 
+
 float4 PS(gsout In): SV_Target{
 	return In.col;
 }
 
-technique10 Trail
+technique10 Trail_Particle
 {
 	pass P0
 	{
-		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetVertexShader( CompileShader( vs_4_0, VS_particle() ) );
 		SetGeometryShader( CompileShader( gs_4_0,geom() ) );
 		SetPixelShader( CompileShader( ps_4_0, PS() ) );
 	}
 }
-
-

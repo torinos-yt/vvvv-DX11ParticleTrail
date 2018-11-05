@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.dtd" >
-   <PATCH nodename="D:\iryut\vvvv\work\Unity Graphics Programing\GPUBasedTrail\GPUBasedTrail.v4p" systemname="GPUBasedTrail" filename="C:\vvvv\work\Unity Graphics Programing\GPUBasedTrail\GPUBasedTrail.v4p" scrollx="144" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
+   <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\GPUBasedTrail.v4p" systemname="GPUBasedTrail" filename="C:\vvvv\work\Unity Graphics Programing\GPUBasedTrail\GPUBasedTrail.v4p" scrollx="144" scrolly="0">
    <BOUNDS type="Window" left="2205" top="1050" width="23250" height="13170">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="1">
@@ -20,7 +20,7 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2004" top="6984" width="696" height="240">
@@ -84,7 +84,7 @@
    </NODE>
    <LINK srcnodeid="44" srcpinname="Layer Out" dstnodeid="27" dstpinname="Layer In">
    </LINK>
-   <PACK Name="dx11" Version="1.0.5">
+   <PACK Name="dx11" Version="1.3.1">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2832" top="6240" width="480" height="480">
@@ -144,12 +144,12 @@
    <PIN pinname="Auto Exposure Factor" slicecount="1" values="0.25">
    </PIN>
    </NODE>
-   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="109" stayontop="1" border="0">
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="109" stayontop="1" border="1">
    <BOUNDS type="Node" left="4140" top="11424" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="4140" top="11424" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="28680" top="-120" width="38640" height="21840">
+   <BOUNDS type="Window" left="12135" top="2430" width="15825" height="9630">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
@@ -225,7 +225,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3696" top="492" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="30000">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="10000">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -645,7 +645,7 @@
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
-   <PIN pinname="Texture SizeXY" slicecount="2" visible="1" values="2440,1500">
+   <PIN pinname="Texture SizeXY" slicecount="2" visible="1" values="1920,1080">
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -883,5 +883,7 @@
    <LINK srcnodeid="186" srcpinname="fps" dstnodeid="187" dstpinname="Y Input Value">
    </LINK>
    <PACK Name="ÎmagePack" Version="0.2.0">
+   </PACK>
+   <PACK Name="VVVV.Packs.Image" Version="0.2.0">
    </PACK>
    </PATCH>

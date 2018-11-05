@@ -1,11 +1,3 @@
-struct Particle {
-	#if defined(COMPOSITESTRUCT)
-  		COMPOSITESTRUCT
- 	#else
-		float3 position;
-	#endif
-};
-
 struct Trail{
 	int currentNodeIdx;
 };
@@ -15,16 +7,18 @@ struct Node{
 	float3 pos;
 };
 
+struct OutBuf{
+	Trail trail;
+	Node node;
+};
+
 struct Input{
 	float3 pos;
 };
 
-StructuredBuffer<Particle> ParticleBuffer;
-StructuredBuffer<uint> AlivePointerBuffer;
-
-
 RWStructuredBuffer<Trail> TrailBuffer : TRAILBUFFER;
 RWStructuredBuffer<Node> _NodeBuffer : NODEBUFFER;
+RWStructuredBuffer<OutBuf> OutBuffer : BACKBUFFER;
 StructuredBuffer<float3> InputBuffer;
 
 
@@ -34,72 +28,29 @@ uint NodeNumPerTrail;
 float UpdateDistanceMin;
 bool init;
 
-
-
-int ToNodeBufIdx(int trailIdx, int nodeIdx)
-{
+int ToNodeBufIdx(int trailIdx, int nodeIdx){
 	nodeIdx %= NodeNumPerTrail;
 	return trailIdx * NodeNumPerTrail + nodeIdx;
 }
 
-bool IsValid(Node node)
-{
+bool IsValid(Node node){
 	return node.time >= 0;
 }
 
-Node GetNode(int trailIdx, int nodeIdx)
-{
+Node GetNode(int trailIdx, int nodeIdx){
 	return _NodeBuffer[ToNodeBufIdx(trailIdx, nodeIdx)];
 }
 
-void SetNode(Node node, int trailIdx, int nodeIdx)
-{
-	_NodeBuffer[ToNodeBufIdx(trailIdx, nodeIdx)] = node;
-}
-
-
-[numthreads(256, 1, 1)]
-void CS_particle(uint3 dtid : SV_DispatchThreadID)
-{
-	uint trailIdx = dtid.x;
-	if(trailIdx < TrailNum){
-		Trail trail;
-		trail = TrailBuffer[trailIdx];
-		int currentNodeIdx = trail.currentNodeIdx;
-		Input input;
-	    input.pos = ParticleBuffer[trailIdx].position;
-		
-		bool update = true;
-		if(init) trail.currentNodeIdx = -1;
-		if(trail.currentNodeIdx >= 0){
-			Node node = GetNode(trailIdx, currentNodeIdx);
-			float dist = distance(input.pos, node.pos);
-			update = dist > UpdateDistanceMin;
-		}
-		
-		if(update){
-			Node node;
-			node.time = Time;
-			node.pos = input.pos;
-			
-			currentNodeIdx++;
-			currentNodeIdx %= NodeNumPerTrail;
-			
-			SetNode(node, trailIdx, currentNodeIdx);
-			
-			trail.currentNodeIdx = currentNodeIdx;
-			TrailBuffer[trailIdx] = trail;
-		}
-	}
+void SetNode(Node node, int trailIdx, int nodeIdx){
+	OutBuffer[ToNodeBufIdx(trailIdx, nodeIdx)].node = node;
 }
 
 [numthreads(256, 1, 1)]
-void CS(uint3 dtid : SV_DispatchThreadID)
-{
+void CS(uint3 dtid : SV_DispatchThreadID){
 	uint trailIdx = dtid.x;
 	if(trailIdx < TrailNum){
 		Trail trail;
-		trail = TrailBuffer[trailIdx];
+		trail = OutBuffer[trailIdx].trail;
 		int currentNodeIdx = trail.currentNodeIdx;
 		Input input;
 	    input.pos = InputBuffer[trailIdx];
@@ -123,7 +74,7 @@ void CS(uint3 dtid : SV_DispatchThreadID)
 			SetNode(node, trailIdx, currentNodeIdx);
 			
 			trail.currentNodeIdx = currentNodeIdx;
-			TrailBuffer[trailIdx] = trail;
+			OutBuffer[trailIdx].trail = trail;
 		}
 	}
 }
@@ -131,14 +82,6 @@ void CS(uint3 dtid : SV_DispatchThreadID)
 technique11 Trail_CS {
 	
 	pass P0{SetComputeShader( CompileShader( cs_5_0, CS() ) );
-	
-		
-	}
-}
-
-technique11 Trail_DX11Particles {
-	
-	pass P0{SetComputeShader( CompileShader( cs_5_0, CS_particle() ) );
 	
 		
 	}

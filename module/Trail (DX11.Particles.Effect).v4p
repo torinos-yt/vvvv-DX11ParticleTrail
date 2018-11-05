@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
-   <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\module\Trail (DX11.Particles.Effect).v4p" scrollx="0" scrolly="225" systemname="Trail (DX11.Particles.Effect)" filename="C:\vvvv\contributions\modules\Trail (DX11.Particles.Effect).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
+   <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\module\Trail (DX11.Particles.Effect).v4p" scrollx="0" scrolly="0" systemname="Trail (DX11.Particles.Effect)" filename="C:\vvvv\contributions\modules\Trail (DX11.Particles.Effect).v4p">
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="11772" top="3384" width="100" height="100">
    </BOUNDS>
@@ -205,9 +205,9 @@
    <NODE id="19" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="NodePerTrail">
    </PIN>
-   <BOUNDS type="Box" left="2388" top="488" width="750" height="240">
+   <BOUNDS type="Box" left="2463" top="758" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2388" top="488" width="750" height="240">
+   <BOUNDS type="Node" left="2463" top="758" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="500">
    </PIN>
@@ -223,6 +223,8 @@
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.96">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <NODE id="21" systemname="IOBox (Color)" componentmode="InABox" nodename="IOBox (Color)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|Start Color|">
@@ -233,14 +235,18 @@
    </BOUNDS>
    <PIN pinname="Color Input" slicecount="1" values="|0.24930,0.24828,0.24469,0.75162|">
    </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
    </NODE>
    <NODE id="22" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
-   <BOUNDS type="Box" left="912" top="8088" width="750" height="240">
+   <BOUNDS type="Box" left="1707" top="8898" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="912" top="8088" width="750" height="240">
+   <BOUNDS type="Node" left="1707" top="8898" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
    <NODE id="23" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Life">
@@ -250,6 +256,8 @@
    <BOUNDS type="Node" left="3552" top="500" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="40">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <NODE id="24" systemname="IOBox (Color)" componentmode="InABox" nodename="IOBox (Color)">
@@ -261,6 +269,8 @@
    </BOUNDS>
    <PIN pinname="Color Input" slicecount="1" values="|0.00000,0.00000,0.00000,0.00000|">
    </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
    </NODE>
    <NODE id="25" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="SizeofOverLife">
@@ -269,6 +279,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7740" top="440" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="4" srcpinname="Position Out" dstnodeid="17" dstpinname="Y Input Value">
    </LINK>
@@ -279,6 +291,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9504" top="416" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Reset" linkstyle="Bezier">
    <LINKPOINT x="9504" y="1302">
@@ -298,6 +312,8 @@
    <BOUNDS type="Node" left="4740" top="512" width="750" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.001">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="5" dstpinname="Semantic">
@@ -321,12 +337,12 @@
    <LINK srcnodeid="7" srcpinname="XY" dstnodeid="9" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Input 2" linkstyle="Bezier">
-   <LINKPOINT x="2396" y="2056">
+   <LINKPOINT x="2446" y="2236">
    </LINKPOINT>
-   <LINKPOINT x="12088" y="2048">
+   <LINKPOINT x="12113" y="2138">
    </LINKPOINT>
    </LINK>
-   <BOUNDS type="Window" left="10245" top="3660" width="18555" height="9075">
+   <BOUNDS type="Window" left="1215" top="2580" width="18555" height="9075">
    </BOUNDS>
    <PACK Name="dx11" Version="1.3.1">
    </PACK>
@@ -359,7 +375,7 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="NullIndirect (DX11.Drawer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="NullIndirect (DX11.Drawer)" componentmode="Hidden" id="41">
-   <BOUNDS type="Node" left="2382" top="6972" width="100" height="100">
+   <BOUNDS type="Node" left="2667" top="6672" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Vertex Arg Buffer" visible="1" pintype="Input" slicecount="1" values="||">
    </PIN>
@@ -385,7 +401,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Sift (DX11.Particles.Core Buffer)" filename="%VVVV%\packs\dx11.particles\nodes\plugins\DX11.Particles.Core\x64\DX11.Particles.Core.dll" nodename="Sift (DX11.Particles.Core Buffer)" componentmode="Hidden" id="39">
-   <BOUNDS type="Node" left="13638" top="2019" width="2160" height="270">
+   <BOUNDS type="Node" left="13623" top="2079" width="2160" height="270">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -403,13 +419,13 @@
    </PIN>
    </NODE>
    <NODE systemname="Info (DX11.Particles.Core ParticleSystem)" filename="%VVVV%\packs\dx11.particles\nodes\plugins\DX11.Particles.Core\x64\DX11.Particles.Core.dll" nodename="Info (DX11.Particles.Core ParticleSystem)" componentmode="Hidden" id="38">
-   <BOUNDS type="Node" left="17664" top="1620" width="100" height="100">
+   <BOUNDS type="Node" left="17664" top="1485" width="100" height="100">
    </BOUNDS>
    <PIN pinname="ParticleSystem" visible="1" slicecount="1" values="|Default System|">
    </PIN>
    <PIN pinname="Buffer Semantic" visible="1">
    </PIN>
-   <BOUNDS type="Box" left="17664" top="1620">
+   <BOUNDS type="Box" left="17664" top="1485">
    </BOUNDS>
    <PIN pinname="ParticleSystem ElementCount" visible="1">
    </PIN>
@@ -449,9 +465,9 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="39" srcpinname="ALIVECOUNTERBUFFER" dstnodeid="36" dstpinname="Input 2" linkstyle="VHV">
-   <LINKPOINT x="16470" y="2952">
+   <LINKPOINT x="16460" y="2992">
    </LINKPOINT>
-   <LINKPOINT x="9612" y="3240">
+   <LINKPOINT x="9607" y="3260">
    </LINKPOINT>
    </LINK>
    <NODE systemname="GT (Value)" nodename="GT (Value)" componentmode="Hidden" id="35">
@@ -549,9 +565,9 @@
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Default Vertex Count" linkstyle="Bezier">
-   <LINKPOINT x="2412" y="3852">
+   <LINKPOINT x="2557" y="3932">
    </LINKPOINT>
-   <LINKPOINT x="2412" y="3852">
+   <LINKPOINT x="2627" y="3742">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="41" dstpinname="Instance Arg Buffer">
@@ -568,6 +584,8 @@
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="ConnectDistanceMax">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="55" systemname="IOBox (Node)">
@@ -594,34 +612,88 @@
    </LINK>
    <PACK Name="ÎmagePack" Version="0.2.0">
    </PACK>
-   <NODE systemname="GPUTrail_CS (DX11.Effect)" filename="..\dx11\GPUTrail_CS.fx" nodename="GPUTrail_CS (DX11.Effect)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="4884" top="3528" width="1944" height="276">
+   <NODE systemname="GPUTrail_CS_Particle (DX11.Effect)" filename="..\dx11\GPUTrail_CS_Particle.fx" nodename="GPUTrail_CS_Particle (DX11.Effect)" componentmode="Hidden" id="57">
+   <BOUNDS type="Node" left="4590" top="4005" width="3720" height="270">
    </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
    <PIN pinname="TrailNum" visible="1">
    </PIN>
    <PIN pinname="NodeNumPerTrail" visible="1">
    </PIN>
    <PIN pinname="UpdateDistanceMin" visible="1">
    </PIN>
-   <PIN pinname="initValue" visible="1">
-   </PIN>
-   <PIN pinname="PosBuffer" visible="1">
-   </PIN>
-   <PIN pinname="Time" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="InputBuffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="initTrail" visible="1" slicecount="1" values="||">
-   </PIN>
    <PIN pinname="init" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
+   <PIN pinname="ParticleBuffer" visible="1">
+   </PIN>
+   <PIN pinname="AlivePointerBuffer" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Trail_DX11Particles">
    </PIN>
    <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Trail_DX11Particles">
+   </NODE>
+   <LINK srcnodeid="57" srcpinname="Layer" dstnodeid="5" dstpinname="Layer" linkstyle="VHV">
+   <LINKPOINT x="4965" y="4923">
+   </LINKPOINT>
+   <LINKPOINT x="10305" y="4873">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Geometry Out" dstnodeid="57" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Time" linkstyle="Bezier">
+   <LINKPOINT x="7965" y="3330">
+   </LINKPOINT>
+   <LINKPOINT x="5775" y="3330">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="57" dstpinname="TrailNum" linkstyle="Bezier">
+   <LINKPOINT x="6585" y="2760">
+   </LINKPOINT>
+   <LINKPOINT x="6030" y="2760">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="57" dstpinname="NodeNumPerTrail" linkstyle="Bezier">
+   <LINKPOINT x="2450" y="2478">
+   </LINKPOINT>
+   <LINKPOINT x="5590" y="2488">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="57" dstpinname="UpdateDistanceMin" linkstyle="Bezier">
+   <LINKPOINT x="4695" y="2323">
+   </LINKPOINT>
+   <LINKPOINT x="5790" y="2418">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="57" dstpinname="init" linkstyle="Bezier">
+   <LINKPOINT x="9420" y="2263">
+   </LINKPOINT>
+   <LINKPOINT x="6000" y="2358">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="57" dstpinname="Enabled" linkstyle="VHV">
+   <LINKPOINT x="19670" y="2538">
+   </LINKPOINT>
+   <LINKPOINT x="6865" y="2458">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Trail_Particle (DX11.Effect)" filename="..\dx11\Trail_Particle.fx" nodename="Trail_Particle (DX11.Effect)" componentmode="Hidden" id="59">
+   <BOUNDS type="Node" left="1680" top="7965" width="11925" height="270">
+   </BOUNDS>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="TrailBuffer" visible="1">
+   </PIN>
+   <PIN pinname="NodeBuffer" visible="1">
    </PIN>
    <PIN pinname="ParticleBuffer" visible="1">
    </PIN>
@@ -629,173 +701,75 @@
    </PIN>
    <PIN pinname="Enabled" visible="1">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="12" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Time" linkstyle="Bezier">
-   <LINKPOINT x="7968" y="3096">
-   </LINKPOINT>
-   <LINKPOINT x="5592" y="3096">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="0" dstpinname="NodeNumPerTrail" linkstyle="Bezier">
-   <LINKPOINT x="2448" y="2136">
-   </LINKPOINT>
-   <LINKPOINT x="5856" y="2136">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="0" dstpinname="UpdateDistanceMin">
-   </LINK>
-   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="0" dstpinname="init" linkstyle="Bezier">
-   <LINKPOINT x="9504" y="2082">
-   </LINKPOINT>
-   <LINKPOINT x="6252" y="2082">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="5" dstpinname="Layer" linkstyle="VHV">
-   <LINKPOINT x="4892" y="4678">
-   </LINKPOINT>
-   <LINKPOINT x="10672" y="4670">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="0" dstpinname="TrailNum" linkstyle="Bezier">
-   <LINKPOINT x="6564" y="2526">
-   </LINKPOINT>
-   <LINKPOINT x="5736" y="2526">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="39" srcpinname="PARTICLEBUFFER" dstnodeid="0" dstpinname="ParticleBuffer" linkstyle="VHV">
-   <LINKPOINT x="13644" y="2904">
-   </LINKPOINT>
-   <LINKPOINT x="6408" y="2904">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="39" srcpinname="ALIVEPOINTERBUFFER" dstnodeid="0" dstpinname="AlivePointerBuffer" linkstyle="VHV">
-   <LINKPOINT x="14688" y="2904">
-   </LINKPOINT>
-   <LINKPOINT x="6576" y="2904">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="34" srcpinname="ParticleSystem Defines" dstnodeid="0" dstpinname="Defines" linkstyle="VHV">
-   <LINKPOINT x="20612" y="2760">
-   </LINKPOINT>
-   <LINKPOINT x="6364" y="2832">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
-   </LINK>
-   <NODE systemname="Trail (DX11.Effect)" filename="..\dx11\Trail.fx" nodename="Trail (DX11.Effect)" componentmode="Hidden" id="2">
-   <BOUNDS type="Node" left="924" top="7584" width="14856" height="276">
-   </BOUNDS>
-   <PIN pinname="Position" visible="1">
-   </PIN>
-   <PIN pinname="PositionBuffer" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Geometry" visible="1">
-   </PIN>
-   <PIN pinname="NodeCount" visible="1" slicecount="1" values="50">
-   </PIN>
-   <PIN pinname="currentIdx" visible="1">
-   </PIN>
-   <PIN pinname="camposXYZ" visible="1">
+   <PIN pinname="SizeofOverLife" visible="1">
    </PIN>
    <PIN pinname="wid" visible="1">
    </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Render State" visible="1">
-   </PIN>
-   <PIN pinname="Start Color" visible="1">
-   </PIN>
-   <PIN pinname="Layer In" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="TrailBuffer" visible="1">
-   </PIN>
-   <PIN pinname="NodeBuffer" visible="1">
-   </PIN>
-   <PIN pinname="Time" visible="1">
-   </PIN>
    <PIN pinname="Life" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" visible="1" values="1">
-   </PIN>
-   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Iteration Count" visible="-1" pintype="Input" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="End Color" visible="1">
-   </PIN>
-   <PIN pinname="SizeofOverLife" visible="1">
-   </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Trail_Particle">
-   </PIN>
-   <PIN pinname="ParticleBuffer" visible="1">
-   </PIN>
-   <PIN pinname="AlivePointerBuffer" visible="1">
    </PIN>
    <PIN pinname="ConnectDisMax" visible="1">
    </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
+   <PIN pinname="NodeCount" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Start Color" visible="1">
+   </PIN>
+   <PIN pinname="End Color" visible="1">
+   </PIN>
+   <PIN pinname="Defines" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="2" dstpinname="Render State">
+   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="59" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="2" dstpinname="NodeCount" linkstyle="Bezier">
-   <LINKPOINT x="2412" y="4146">
+   <LINK srcnodeid="3" srcpinname="Render State" dstnodeid="59" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output Node" dstnodeid="59" dstpinname="TrailBuffer">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output Node" dstnodeid="59" dstpinname="NodeBuffer">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="PARTICLEBUFFER" dstnodeid="59" dstpinname="ParticleBuffer">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="ALIVEPOINTERBUFFER" dstnodeid="59" dstpinname="AlivePointerBuffer">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="59" dstpinname="SizeofOverLife">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="59" dstpinname="wid">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Life">
+   </LINK>
+   <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="59" dstpinname="ConnectDisMax">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Time">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="59" dstpinname="NodeCount">
+   </LINK>
+   <PACK Name="VVVV.Packs.Image" Version="0.2.0">
+   </PACK>
+   <LINK srcnodeid="59" srcpinname="Layer" dstnodeid="22" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Color Output" dstnodeid="59" dstpinname="Start Color">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Color Output" dstnodeid="59" dstpinname="End Color">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="ParticleSystem Defines" dstnodeid="59" dstpinname="Defines" linkstyle="VHV">
+   <LINKPOINT x="19755" y="4838">
    </LINKPOINT>
-   <LINKPOINT x="4632" y="4146">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="2" dstpinname="wid">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Color Output" dstnodeid="2" dstpinname="Start Color">
-   </LINK>
-   <LINK srcnodeid="2" srcpinname="Layer" dstnodeid="22" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Output Node" dstnodeid="2" dstpinname="TrailBuffer" linkstyle="Bezier">
-   <LINKPOINT x="10780" y="7178">
-   </LINKPOINT>
-   <LINKPOINT x="11228" y="7186">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Output Node" dstnodeid="2" dstpinname="NodeBuffer" linkstyle="Bezier">
-   <LINKPOINT x="11740" y="7166">
-   </LINKPOINT>
-   <LINKPOINT x="11984" y="7174">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Time" linkstyle="Bezier">
-   <LINKPOINT x="7968" y="5136">
-   </LINKPOINT>
-   <LINKPOINT x="5400" y="5136">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Life">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Color Output" dstnodeid="2" dstpinname="End Color">
-   </LINK>
-   <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="2" dstpinname="SizeofOverLife">
-   </LINK>
-   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Enabled">
-   </LINK>
-   <LINK srcnodeid="41" srcpinname="Geometry Out" dstnodeid="2" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="34" srcpinname="ParticleSystem Defines" dstnodeid="2" dstpinname="Defines" linkstyle="VHV">
-   <LINKPOINT x="20588" y="4602">
-   </LINKPOINT>
-   <LINKPOINT x="14956" y="4674">
+   <LINKPOINT x="13605" y="4838">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="39" srcpinname="PARTICLEBUFFER" dstnodeid="2" dstpinname="ParticleBuffer" linkstyle="VHV">
-   <LINKPOINT x="13656" y="4932">
-   </LINKPOINT>
-   <LINKPOINT x="12780" y="4932">
-   </LINKPOINT>
+   <LINK srcnodeid="39" srcpinname="PARTICLEBUFFER" dstnodeid="57" dstpinname="ParticleBuffer">
    </LINK>
-   <LINK srcnodeid="39" srcpinname="ALIVEPOINTERBUFFER" dstnodeid="2" dstpinname="AlivePointerBuffer" linkstyle="VHV">
-   <LINKPOINT x="14700" y="4932">
-   </LINKPOINT>
-   <LINKPOINT x="13524" y="4932">
-   </LINKPOINT>
+   <LINK srcnodeid="39" srcpinname="ALIVEPOINTERBUFFER" dstnodeid="57" dstpinname="AlivePointerBuffer">
    </LINK>
-   <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="2" dstpinname="ConnectDisMax">
+   <LINK srcnodeid="34" srcpinname="ParticleSystem Defines" dstnodeid="57" dstpinname="Defines" linkstyle="VHV">
+   <LINKPOINT x="19855" y="3185">
+   </LINKPOINT>
+   <LINKPOINT x="8225" y="3190">
+   </LINKPOINT>
    </LINK>
    </PATCH>
