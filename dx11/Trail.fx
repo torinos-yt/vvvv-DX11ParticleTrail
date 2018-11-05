@@ -18,9 +18,6 @@ StructuredBuffer<Trail> TrailBuffer;
 StructuredBuffer<Node> NodeBuffer;
 StructuredBuffer<OutBuf> OutBuffer;
 
-StructuredBuffer<Particle> ParticleBuffer;
-StructuredBuffer<uint> AlivePointerBuffer;
-
 uint NodeCount;
 float Life;
 float ConnectDisMax;
@@ -182,7 +179,7 @@ float4 PS(gsout In): SV_Target{
 	return In.col;
 }
 
-technique10 Trail
+technique10 CSTrail
 {
 	pass P0
 	{
@@ -191,5 +188,3 @@ technique10 Trail
 		SetPixelShader( CompileShader( ps_4_0, PS() ) );
 	}
 }
-
-
