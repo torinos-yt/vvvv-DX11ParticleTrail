@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
-   <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\GPUBasedTrail.v4p" systemname="GPUBasedTrail" filename="C:\vvvv\work\Unity Graphics Programing\GPUBasedTrail\GPUBasedTrail.v4p" scrollx="144" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
+   <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\GPUBasedTrail.v4p" systemname="GPUBasedTrail" filename="C:\vvvv\work\Unity Graphics Programing\GPUBasedTrail\GPUBasedTrail.v4p" scrollx="150" scrolly="-360">
    <BOUNDS type="Window" left="2205" top="1050" width="23250" height="13170">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="1">
@@ -20,7 +20,7 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="36.0.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2004" top="6984" width="696" height="240">
@@ -131,11 +131,11 @@
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Amount" slicecount="1" values="1.5">
+   <PIN pinname="Amount" slicecount="1" values="2.13">
    </PIN>
-   <PIN pinname="Exposure" slicecount="1" values="1">
+   <PIN pinname="Exposure" slicecount="1" values="1.01">
    </PIN>
-   <PIN pinname="Shape" slicecount="1" values="-0.37">
+   <PIN pinname="Shape" slicecount="1" values="-0.09">
    </PIN>
    <PIN pinname="Highlight Boost" slicecount="1" values="0">
    </PIN>
@@ -149,7 +149,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4140" top="11424" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="12135" top="2430" width="15825" height="9630">
+   <BOUNDS type="Window" left="12480" top="1320" width="15825" height="9630">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
@@ -225,7 +225,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3696" top="492" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="10000">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="25000">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -545,7 +545,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="SizeXYZ" slicecount="3" values="0.011,0.011,0.011">
+   <PIN pinname="SizeXYZ" slicecount="3" values="0.01,0.01,0.01">
    </PIN>
    <BOUNDS type="Window" left="732" top="960" width="17796" height="8712">
    </BOUNDS>
@@ -583,7 +583,7 @@
    </BOUNDS>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Mode" slicecount="1" values="Add">
+   <PIN pinname="Mode" slicecount="1" values="AlphaAdd">
    </PIN>
    </NODE>
    <LINK srcnodeid="160" srcpinname="Render State" dstnodeid="44" dstpinname="Render State">
@@ -886,4 +886,36 @@
    </PACK>
    <PACK Name="VVVV.Packs.Image" Version="0.2.0">
    </PACK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="188">
+   <BOUNDS type="Box" left="4935" top="8550" width="795" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4935" top="8550" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="1920,1080">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="189">
+   <BOUNDS type="Node" left="5040" top="9240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="188" srcpinname="Y Output Value" dstnodeid="189" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="189" srcpinname="Output" dstnodeid="170" dstpinname="Texture SizeXY">
+   </LINK>
    </PATCH>

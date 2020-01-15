@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
    <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\module\Trail (DX11.Layer).v4p" scrollx="0" scrolly="15" systemname="Trail (DX11.3D Buffer)" filename="C:\vvvv\contributions\modules\Trail (DX11.3D Buffer).v4p">
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="7842" top="3483" width="100" height="100">
@@ -21,7 +21,7 @@
    <NODE systemname="Integrate (Differential)" nodename="Integrate (Differential)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="3744" top="5484" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Position In" slicecount="1" values="1">
+   <PIN pinname="Position In" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Position Out" visible="1">
    </PIN>
@@ -103,6 +103,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4200" top="380" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.1">
+   </PIN>
    </NODE>
    <NODE id="21" systemname="IOBox (Color)" componentmode="InABox" nodename="IOBox (Color)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|Start Color|">
@@ -129,6 +131,10 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3348" top="380" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="3">
+   </PIN>
    </NODE>
    <NODE id="24" systemname="IOBox (Color)" componentmode="InABox" nodename="IOBox (Color)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|End Color|">
@@ -169,6 +175,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="4992" top="416" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.001">
+   </PIN>
    </NODE>
    <NODE id="29" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|PosBuffer 3D|">
@@ -190,7 +198,7 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="36.0.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="10368" top="1008" width="744" height="240">
@@ -424,8 +432,6 @@
    </LINK>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Time">
    </LINK>
-   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Life">
-   </LINK>
    <LINK srcnodeid="24" srcpinname="Color Output" dstnodeid="2" dstpinname="End Color">
    </LINK>
    <LINK srcnodeid="25" srcpinname="Y Output Value" dstnodeid="2" dstpinname="SizeofOverLife">
@@ -439,5 +445,19 @@
    <LINK srcnodeid="47" srcpinname="Output Node" dstnodeid="2" dstpinname="OutBuffer">
    </LINK>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="2" dstpinname="Layer In">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="3255" top="3270" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="48" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Output" dstnodeid="2" dstpinname="Life">
    </LINK>
    </PATCH>

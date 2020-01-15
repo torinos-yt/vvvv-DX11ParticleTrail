@@ -36,14 +36,6 @@ bool sol<string uiname = "SizeofOverLife";> = 1;
 float4 scol <bool color = true; string uiname = "Start Color";> = float4(1,1,1,1);
 float4 ecol <bool color = true; string uiname = "End Color";> = float4(0,0,0,0);
 
-
-float3 MakeCamPos(float4x4 View){
-	float tx = -dot(View[0], View[3]);
-	float ty = -dot(View[1], View[3]);
-	float tz = -dot(View[2], View[3]);
-	return float3(tx, ty, tz);
-}
-
 int ToNodeBufIdx(int trailIdx, int nodeIdx){
 	nodeIdx %= NodeCount;
 	return trailIdx * NodeCount + nodeIdx;
@@ -70,6 +62,7 @@ cbuffer cbPerDraw : register( b0 ){
 cbuffer cbPerObj : register( b1 ){
 	float4x4 tW : WORLD;
 	float4x4 tV : VIEW;
+	float4x4 tVI : VIEWINVERSE;
 	float4x4 tWVP : WORLDVIEWPROJECTION;
 	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
 };
@@ -163,12 +156,14 @@ void geom (point vsout input[1], inout TriangleStream<gsout> outStream){
 	float ageRate = sol ? 1 - input[0].ageRate : 1;
 	float ageRateNext = sol ? 1 - input[0].ageRateNext : 1;
 	
-	float3 camPos = MakeCamPos(tV);
+	float3 camPos = tVI[3].xyz;
 	float3 toCamDir = normalize(camPos - pos);
 	float3 sideDir = normalize(cross(toCamDir, dir));
 	
 	float3 toCamDirNext = normalize(camPos - posNext);
 	float3 sideDirNext = normalize(cross(toCamDirNext, dirNext));
+	
+	sideDir = lerp(sideDir, -sideDir, step(dot(sideDir, sideDirNext), 0));
 	
 	float width = wid * .01 * input[0].width;
 	

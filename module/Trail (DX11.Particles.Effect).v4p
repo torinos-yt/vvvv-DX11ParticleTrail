@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
    <PATCH nodename="F:\vvvv\contributions\modules\DX11ParticleTrail\module\Trail (DX11.Particles.Effect).v4p" scrollx="0" scrolly="0" systemname="Trail (DX11.Particles.Effect)" filename="C:\vvvv\contributions\modules\Trail (DX11.Particles.Effect).v4p">
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="11772" top="3384" width="100" height="100">
@@ -15,13 +15,13 @@
    </BOUNDS>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Mode" slicecount="1" values="BackCullSimple">
+   <PIN pinname="Mode" slicecount="1" values="NoCullSimple">
    </PIN>
    </NODE>
    <NODE systemname="Integrate (Differential)" nodename="Integrate (Differential)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="7992" top="1944" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Position In" slicecount="1" values="1">
+   <PIN pinname="Position In" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Position Out" visible="1">
    </PIN>
@@ -342,7 +342,7 @@
    <LINKPOINT x="12113" y="2138">
    </LINKPOINT>
    </LINK>
-   <BOUNDS type="Window" left="1215" top="2580" width="18555" height="9075">
+   <BOUNDS type="Window" left="-144" top="5820" width="18564" height="9084">
    </BOUNDS>
    <PACK Name="dx11" Version="1.3.1">
    </PACK>
@@ -350,7 +350,7 @@
    </PACK>
    <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="36.0.0">
+   <PACK Name="addonpack" Version="38.1.0">
    </PACK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6564" top="1284" width="744" height="240">
@@ -740,8 +740,6 @@
    </LINK>
    <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="59" dstpinname="wid">
    </LINK>
-   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Life">
-   </LINK>
    <LINK srcnodeid="53" srcpinname="Y Output Value" dstnodeid="59" dstpinname="ConnectDisMax">
    </LINK>
    <LINK srcnodeid="17" srcpinname="Y Output Value" dstnodeid="59" dstpinname="Time">
@@ -771,5 +769,19 @@
    </LINKPOINT>
    <LINKPOINT x="8225" y="3190">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="60">
+   <BOUNDS type="Node" left="3780" top="2865" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="0.1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Output" dstnodeid="59" dstpinname="Life">
    </LINK>
    </PATCH>
